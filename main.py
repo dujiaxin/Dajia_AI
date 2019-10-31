@@ -6,10 +6,12 @@ from os.path import exists
 import time
 import unicodedata
 
+
 def formateDajia(sentence):
     sentence = unicodedata.normalize('NFKC', sentence)
     sentence = sentence.replace("。"," ")
-    return sentence
+    sentence = sentence.replace(",", " ")
+    return sentence.strip()
 
 
 if __name__ == '__main__':
@@ -20,8 +22,8 @@ if __name__ == '__main__':
         print("Ready, hit RETURN to overwrite, CTRL-C to abort.")
         input()
 
-    appid = ''  # 填写你的appid
-    secretKey = ''  # 填写你的密钥
+    appid = '20190504000293991'  # 填写你的appid
+    secretKey = 'OA6n_6a40XvPCojHHdht'  # 填写你的密钥
     baidu = BaiduTranslate(appid,secretKey)
 
     with open(to_file,'w') as file_translated:
